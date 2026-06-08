@@ -14,14 +14,8 @@ RUN pip3 install --no-cache-dir -U huggingface_hub
 ENV HF_REPO_ID=Jackrong/Qwopus3.6-27B-v2-MTP-GGUF
 ENV HF_FILENAME=Qwopus3.6-27B-v2-MTP-Q8_0.gguf
 
-RUN python3 - << 'PY'
-import os
-from huggingface_hub import hf_hub_download
-repo = os.environ["HF_REPO_ID"]
-file = os.environ["HF_FILENAME"]
-path = hf_hub_download(repo_id=repo, filename=file, local_dir=os.environ.get("MODEL_DIR","/models"))
-print("Downloaded to:", path)
-PY
+COPY download_model.py /download_model.py
+RUN python3 /download_model.py
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
