@@ -19,10 +19,4 @@ EXPOSE 8080
 
 # Обратите внимание: это аргументы, которые потребляет entrypoint внутри server-cuda image
 # LLAMA_ARGS вы можете переопределять через Template/Pod env, но проще сразу задать CMD.
-CMD ["-m","/models/Qwopus3.6-27B-v2-MTP-Q8_0.gguf",
-     "--port","8080","--host","0.0.0.0",
-     "-ngl","999",
-     "--cache-type-k","q8_0","--cache-type-v","q8_0",
-     "--spec-type","mtp",
-     "-c","131072",
-     "--temp","1.0"]
+CMD ["-m","/models/Qwopus3.6-27B-v2-MTP-Q8_0.gguf","--port","8080","--host","0.0.0.0","-ngl","999","--cache-type-k","q8_0","--cache-type-v","q8_0","--spec-type","mtp","-c","131072","--temp","1.0"]
