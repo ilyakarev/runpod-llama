@@ -8,8 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-pip ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --no-cache-dir -U huggingface_hub
-
 # Запекаем модель в image
 ENV HF_REPO_ID=Jackrong/Qwopus3.6-27B-v2-MTP-GGUF
 ENV HF_FILENAME=Qwopus3.6-27B-v2-MTP-Q8_0.gguf
