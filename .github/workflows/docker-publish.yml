@@ -25,4 +25,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}:qwopus-q8_0
+          tags: ghcr.io/${{ github.repository }}:qwopus-q8_0-server-cuda13
